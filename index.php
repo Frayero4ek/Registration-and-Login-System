@@ -5,7 +5,7 @@ checkGuest();
 ?>
 
 <!DOCTYPE html>
-<html lang="uk" data-theme="light">
+<html lang="uk" data-theme="dark">
 <?php include_once __DIR__ . '/components/head.php'?>
 <body>
 
