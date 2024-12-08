@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../helpers.php';
 
-// Выносим данных из $_POST в отдельные переменные
+// Виносимо даних із $_POST в окремі змінні
 
 $avatarPath = null;
 $name = $_POST['name'] ?? null;
@@ -11,7 +11,7 @@ $password = $_POST['password'] ?? null;
 $passwordConfirmation = $_POST['password_confirmation'] ?? null;
 $avatar = $_FILES['avatar'] ?? null;
 
-// Выполняем валидацию полученных данных с формы
+// Виконуємо валідацію отриманих даних із форми
 
 if (empty($name)) {
     setValidationError('name', 'Неправильне Ім\'я');
@@ -41,15 +41,14 @@ if (!empty($avatar)) {
     }
 }
 
-// Если список с ошибками валидации не пустой, то производим редирект обратно на форму
-
+// Якщо список з помилками валідації не порожній, то виконуємо редирект назад на форму
 if (!empty($_SESSION['validation'])) {
     setOldValue('name', $name);
     setOldValue('email', $email);
     redirect('/register.php');
 }
 
-//  Загружаем аватарку, если она была отправлена в форме
+// Завантажуємо аватарку, якщо вона була відправлена ​​у формі
 
 if (!empty($avatar)) {
     $avatarPath = uploadFile($avatar, 'avatar');
